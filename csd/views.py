@@ -11,4 +11,5 @@ def checkSignature(request):
     signature = params["signature"]
     timestamp = params["timestamp"]
     echostr = params["echostr"]
-    return Response(echostr)
+    result={"echostr":echostr}
+    return Response(result)
