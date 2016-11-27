@@ -166,11 +166,9 @@ WSGI_APPLICATION = 'wechat.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'wechat',
-        'USER': 'portal',
-        'PASSWORD': 'portal.ctyun',
-        'HOST': '183.78.180.27',
-        'PORT': '3306',
+        'OPTIONS': {
+            'read_default_file': BASE_DIR+'wechat/database.config',
+        },
     }
 }
 
