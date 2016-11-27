@@ -19,6 +19,6 @@ import api
 
 urlpatterns = [
     url(r'^wechat/admin/', include(admin.site.urls)),
-    url(r'^$',csd_views.checkSignature),
-    url(r'^get_access_token$',csd_views.getAccessToken)
+    url(r'^wechat/$',csd_views.checkSignature),
+    url(r'^wechat/get_access_token$',csd_views.getAccessToken)
 ]
