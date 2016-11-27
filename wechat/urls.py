@@ -15,8 +15,10 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from csd import views as csd_views
+import api
 
 urlpatterns = [
     url(r'^wechat/admin/', include(admin.site.urls)),
     url(r'^$',csd_views.checkSignature),
+    url(r'^get_access_token$',csd_views.getAccessToken)
 ]
