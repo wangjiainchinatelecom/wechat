@@ -22,7 +22,7 @@ def checkSignature(request):
             result='request is not allow!'
     if request.method == "POST":
         create_time = datetime.datetime.now().timetuple()
-        result = "<xml><ToUserName><![CDATA[{}]]></ToUserName><FromUserName><![CDATA[{}]]></FromUserName><CreateTime>{}</CreateTime><MsgType><![CDATA[transfer_customer_service]]></MsgType></xml>".format(touser,"chenlong828_",time.mktime(create_time))
+        result = "<xml><ToUserName><![CDATA[{}]]></ToUserName><FromUserName><![CDATA[{}]]></FromUserName><CreateTime>{}</CreateTime><MsgType><![CDATA[transfer_customer_service]]></MsgType></xml>".format(touser,"wj_851026",time.mktime(create_time))
     return HttpResponse(result)
 
 @api_view(["GET"])
