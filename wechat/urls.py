@@ -1,3 +1,4 @@
+# coding:utf-8
 """wechat URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -15,10 +16,18 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from csd import views as csd_views
+from common import views as common_views
 import api
 
 urlpatterns = [
     url(r'^wechat/admin/', include(admin.site.urls)),
     url(r'^wechat/$',csd_views.checkSignature),
-    url(r'^wechat/get_access_token$',csd_views.getAccessToken)
+    url(r'^wechat/get_access_token$',csd_views.getAccessToken),
+
+
+    #测试用代码
+    url(r'^wechat/getsessionlist/$',csd_views.get_session_list),
+    url(r'^wechat/send_message$',csd_views.send_message),
+
+
 ]

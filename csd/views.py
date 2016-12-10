@@ -6,6 +6,8 @@ from rest_framework import status
 from django.http import HttpResponse
 from wechat import api
 import datetime,time,xmltodict,json
+from common import views as common_api
+from common import utils
 
 # Create your views here.
 def checkSignature(request):
@@ -30,17 +32,25 @@ def checkSignature(request):
     return HttpResponse(result)
 
 
+#获取token
 def getAccessToken(request):
-    result = api.get_access_token()
+    result = utils.get_access_token()
     return HttpResponse(result)
 
 
-def printLog(request):
-    if request.http_method_names =="GET":
-        print request.query_params
-    elif request.http_method_names =="POST":
-        print request.data
-    return HttpResponse("success")
+#查询会话列表
+def get_session_list(request):
+    result = json.dumps(common_api.getwaitcase())
+    return HttpResponse(result)
+
+
+def send_message(request):
+    data = json.loads(request.body)
+    touser = data.get("touser")
+    msgtype = data.get("msgtype")
+    content = data.get("content")
+    result = json.dumps(common_api.send_msg(touser,msgtype,content))
+    return HttpResponse(result)
 
 
 def returnXmlMsg(FromUserName,ToUserName,MsgType,Content,createTime=None):
