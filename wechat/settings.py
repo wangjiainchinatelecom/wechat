@@ -99,7 +99,7 @@ LOGGING = {
             'propagate': False,
         },
         'scripts': {
-            'handlers': ['scprits_handler'],
+            'handlers': ['scprits_handler','console'],
             'level': 'INFO',
             'propagate': False
         },
